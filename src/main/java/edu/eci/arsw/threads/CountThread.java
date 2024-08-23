@@ -12,21 +12,21 @@ import   java.lang.*;
  * @author hcadavid
  */
 public class CountThread implements Runnable {
-    public int A;
-    public int B;
+    public int LowLimit;
+    public int UpperLimit;
 
-    public CountThread(int A, int B) {
-        this.A = A;
-        this.B = B;
+    public CountThread(int LowLimit, int UpperLimit) {
+        this.LowLimit = LowLimit;
+        this.UpperLimit = UpperLimit;
     }
 
     public void run() {
-        if(B < A){
-            int newA = B;
-            B = A;
-            A = newA;
+        if(UpperLimit < LowLimit){
+            int newA = UpperLimit;
+            UpperLimit = LowLimit;
+            UpperLimit = newA;
         }
-        for (int i = A + 1; i < B; i++) {
+        for (int i = LowLimit + 1; i < UpperLimit; i++) {
             System.out.println(i);
         }
     }
